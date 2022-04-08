@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.example.hw17.databinding.FragmentPlayVideoBinding
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
@@ -17,17 +18,12 @@ class PlayVideoFragment : Fragment() {
     private var _binding: FragmentPlayVideoBinding? = null
     private val binding get() = _binding!!
     private var player: ExoPlayer? = null
-    private lateinit var activityResultLauncher: ActivityResultLauncher<Array<String>>
-    private lateinit var uri: Uri
-    private var playsWhenReady = true
-    private var currentWindow = 0
-    private var playbackPosition = 0L
-    private var isFirstRun = true
+    private val viewModel: PlayVideoViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (savedInstanceState == null) {
-            activityResultLauncher = registerForActivityResult(ActivityResultContracts.OpenDocument()) {
-                uri = it
+            viewModel.activityResultLauncher = registerForActivityResult(ActivityResultContracts.OpenDocument()) {
+                viewModel.uri = it
                 playVideo()
             }
         }
@@ -35,9 +31,9 @@ class PlayVideoFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        if (isFirstRun) {
-            isFirstRun = false
-            activityResultLauncher.launch(arrayOf("video/*"))
+        if (viewModel.isFirstRun) {
+            viewModel.isFirstRun = false
+            viewModel.activityResultLauncher.launch(arrayOf("video/*"))
         }
     }
 
@@ -58,27 +54,27 @@ class PlayVideoFragment : Fragment() {
     private fun playVideo() {
         player = ExoPlayer.Builder(requireContext()).build()
         binding.playerView.player = player
-        val mediaItem: MediaItem = MediaItem.fromUri(uri)
+        val mediaItem: MediaItem = MediaItem.fromUri(viewModel.uri)
         player!!.setMediaItem(mediaItem)
-        player!!.playWhenReady = playsWhenReady
-        player!!.seekTo(currentWindow, playbackPosition)
+        player!!.playWhenReady = viewModel.playsWhenReady
+        player!!.seekTo(viewModel.currentWindow, viewModel.playbackPosition)
         player!!.prepare()
         player!!.play()
     }
 
     override fun onStop() {
         player?.run {
-            playbackPosition = this.currentPosition
-            currentWindow = this.currentMediaItemIndex
-            playsWhenReady = this.playWhenReady
-            //isFirstRun = false
+            viewModel.playbackPosition = currentPosition
+            viewModel.currentWindow = currentMediaItemIndex
+            viewModel.playsWhenReady = playWhenReady
         }
-        player = null
         super.onStop()
     }
 
     override fun onDestroy() {
         _binding = null
+        player!!.release()
+        player=null
         super.onDestroy()
     }
 }

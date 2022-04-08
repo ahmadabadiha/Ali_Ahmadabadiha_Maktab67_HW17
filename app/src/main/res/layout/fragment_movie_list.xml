@@ -4,23 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:layout_gravity="center"
+    android:background="#000000"
+    android:orientation="vertical"
     tools:context=".uilayer.MovieListFragment">
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/searchView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="56dp"
         android:layout_marginTop="24sp"
-
+        android:background="#ED000000"
         app:iconifiedByDefault="true"
-        app:queryHint="search movies" />
+        app:closeIcon="@drawable/ic_baseline_search_24"
+        app:queryHint="search movies"
+        app:searchIcon="@drawable/ic_baseline_search_24" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="32sp"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:layout_marginBottom="32sp" />
 </LinearLayout>

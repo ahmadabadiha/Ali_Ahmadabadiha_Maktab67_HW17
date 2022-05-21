@@ -2,15 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/movieListFragment"
+        android:id="@+id/movieListFragment2"
         android:icon="@drawable/ic_baseline_star_24"
         android:title="@string/popular" />
     <item
-        android:id="@+id/upcomingFragment"
+        android:id="@+id/upcomingFragment2"
         android:icon="@drawable/ic_baseline_event_24"
         android:title="@string/upcoming" />
     <item
-        android:id="@+id/playVideoFragment"
+        android:id="@+id/playVideoFragment2"
         android:icon="@drawable/ic_baseline_play_arrow_24"
         android:title="@string/play_video" />
 </menu>

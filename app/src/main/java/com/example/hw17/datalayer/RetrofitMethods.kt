@@ -41,7 +41,5 @@ interface RetrofitMethods {
         @Query("api_key") apiKey: String = "af83fd22713a9cd5adc548887fcd9e29",
         @Query("query") searchQuery: String
     ): MovieModel
-/*
-    @GET("https://image.tmdb.org/t/p/w500")
-    suspend fun getImage(@Path ("imagePath") path: String)*/
+
 }

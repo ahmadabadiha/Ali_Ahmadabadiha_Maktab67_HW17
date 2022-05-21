@@ -11,7 +11,7 @@ class Repository(private val remoteDataSource: RemoteDataSource, private val loc
 
 
     suspend fun getMoviesFromNet():List<Movie>{
-        Log.d("ali", "getMoviesFromNet: ")
+
         val localMovieList: MutableList<Movie> = mutableListOf()
         remoteDataSource.getPopular().results.forEach { movieItem ->
             val movie = Movie(

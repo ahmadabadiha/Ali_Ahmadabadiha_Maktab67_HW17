@@ -4,13 +4,13 @@
     <item
         android:id="@+id/movieListFragment"
         android:icon="@drawable/ic_baseline_star_24"
-        android:title="Popular" />
+        android:title="@string/popular" />
     <item
         android:id="@+id/upcomingFragment"
         android:icon="@drawable/ic_baseline_event_24"
-        android:title="Upcoming" />
+        android:title="@string/upcoming" />
     <item
         android:id="@+id/playVideoFragment"
         android:icon="@drawable/ic_baseline_play_arrow_24"
-        android:title="Play video" />
+        android:title="@string/play_video" />
 </menu>

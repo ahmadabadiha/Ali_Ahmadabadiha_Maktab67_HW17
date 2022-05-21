@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Hw17</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="popular">Popular</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="play_video">Play video</string>
 </resources>

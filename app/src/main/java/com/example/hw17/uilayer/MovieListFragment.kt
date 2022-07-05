@@ -75,7 +75,7 @@ class MovieListFragment : Fragment() {
     }
 
     private fun isInternetAvailable(): Boolean {
-        var result = false
+        var result: Boolean
         val connectivityManager =
             requireContext().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val networkCapabilities = connectivityManager.activeNetwork ?: return false

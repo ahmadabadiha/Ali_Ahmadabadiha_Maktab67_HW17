@@ -23,7 +23,7 @@ interface RetrofitMethods {
         @QueryMap query: Map<String, String> = mapOf(
             "api_key" to "af83fd22713a9cd5adc548887fcd9e29",
             "language" to "en-US",
-            "page" to "15"
+            "page" to "1"
         )
     ): MovieModel
 

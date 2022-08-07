@@ -1,4 +1,4 @@
-package com.example.hw17.database
+package com.example.hw17.datalayer.database
 
 import android.content.Context
 import androidx.room.Database

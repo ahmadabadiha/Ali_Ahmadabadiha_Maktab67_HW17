@@ -1,7 +1,7 @@
 package com.example.hw17
 
 import android.content.Context
-import com.example.hw17.database.MovieDatabase
+import com.example.hw17.datalayer.database.MovieDatabase
 import com.example.hw17.datalayer.*
 
 class AppContainer(context: Context) {

@@ -1,6 +1,6 @@
 package com.example.hw17.datalayer
 
-import com.example.hw17.database.MovieDao
+import com.example.hw17.datalayer.database.MovieDao
 import com.example.hw17.localmodel.Movie
 
 class RoomDataSource(private val movieDao: MovieDao) : LocalDataSource {
